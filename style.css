@@ -1,14 +1,18 @@
-* {
+*,
+*::after {
     box-sizing: border-box;
 }
 
-html {
-    font-family: sans-serif;
+input,
+select,
+button {
+    font-family: inherit;
 }
 
 body {
     margin: 0;
     padding-top: 0.5rem;
+    font-family: sans-serif;
 }
 
 main {
@@ -20,25 +24,55 @@ main {
     background-color: rgba(211, 211, 211, 0.222);
 }
 
+article {
+    background-color: white;
+}
+
 header {
     position: relative;
 }
 
-.img {
+
+header::after {     /*Ein Pseudo-Element ist erst nicht sichtbar
+                    weil es keinen Content hat (siehe  Quelltext)*/
+    content: "";    /*Erst jetzt ist es sichtbar (im Quelltext).
+                    Es wird immer noch nicht auf der Seite angezigt.*/
+    display: block; /*Erst durch "display: block" und Bestimmung einer Höhe und Breite
+                    wird es auf der Seite sichtbar, da es ein block-Element ist.*/
+    width: 100%;
+    height: 9rem;
+    /*Es ist nach dem "header" (also unter dem Bild) positioniert.
+    Deshalb mit "position: absolute" aus dem content-flow reißen und positionieren.*/
+    position: absolute; /*Durch "position: absolute" überlagert das Pseudo-Element nun
+                        den Content der  Klasse "photographer.*/
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(transparent 0%, white 95%,  white 100%);
+    _background-color: pink;
+}
+
+.img {              /*img ist standardmäßig  ein inline-Element. Inline-Elemente
+                    haben einen "line-heigt". Deshalb setzt  man img-Element auf
+                    "display: block"*/
     width: 100%;
     height: auto;
     opacity: 0.9;
+    _line-height: 1.2;
+    display: block;
 }
 
 .extra-information {
+    font-size: 0.7rem;
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
     background-color: lightgrey;
-    opacity: 0.8;
+    opacity: 0.7;
     border-radius: 0.25rem;
-    padding: 0.125rem;
- }
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
  
  .photographer {
     position: absolute;
@@ -47,7 +81,10 @@ header {
     color: black;
     opacity: 0.6;
     font-size: 0.6rem;
- }
+    z-index: 1;     /*Die Klasse "Photogtapher" und die Pseudo-Klasse für den
+                    header sind beide mit "absolute" positioniert. Über "z-index"
+                    können wir die Reihenfolge der Überlagerung bestimmen.*/
+}
 
 
 .main-content {
@@ -169,3 +206,4 @@ input[type="radio"]:checked + label > .color {  /*Wenn input gecheckt ist, nehme
     display: grid;
     justify-content: center;
 }
+
