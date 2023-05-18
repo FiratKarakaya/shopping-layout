@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding-top: 0.5rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    gap: 3%;
+    padding: 3%;
+    background-color: rgba(211, 211, 211, 0.222);
+}
+
+header {
+    position: relative;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+}
+
+.extra-information {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: lightgrey;
+    opacity: 0.8;
+    border-radius: 0.25rem;
+    padding: 0.125rem;
+ }
+ 
+ .photographer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: black;
+    opacity: 0.6;
+    font-size: 0.6rem;
+ }
+
+
+.main-content {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    display: grid;
+}
+
+
+p {
+    color: black;
+    opacity: 0.6;
+}
+
+section {
+    background-color: rgba(128, 128, 128, 0.09);
+    border-radius: 0.5rem;
+}
+
+.price {
+    background-color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+}
+
+.size-quantity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.border-radius {
+    border-radius: 1rem;
+}
+
+
+
+.colors-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/*den Farben ein Größe geben, damit die sichtbar sind.
+sonst haben die Farben die Größe Null!*/
+.color {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black;
+}
+
+
+.green-black {
+    background-image: linear-gradient(90deg, rgb(117, 169, 68) 50%, black 50%)
+}
+
+.blue-black {
+    background-image: linear-gradient(90deg, rgb(52, 124, 180) 50%, black 50%)
+}
+
+.violet-black {
+    background-image: linear-gradient(90deg, rgb(186, 95, 186) 50%, black 50%)
+}
+
+.red-white {
+    background-image: linear-gradient(90deg, red 50%, white 50%)
+}
+
+.black-white {
+    background-image: linear-gradient(90deg, black 50%, white 50%)
+}
+
+.only-screenreader {
+    font-size: 0;
+    position: absolute;
+}
+
+input[type="radio"] {
+    all: unset;         /*input-Felder verschwinden, da kein Inhalt.
+                        "unset" setzt alle stylings zurück, die mit dem Element verbunden sind.*/
+    position: absolute;                        
+}
+
+input[type="radio"]:checked + label > .color {  /*Wenn input gecheckt ist, nehme vom Geschwister-Eelement (+) 
+                                                die Kinder-Elemente (>), die die Klasse "color" haben.*/
+    outline-offset: 2px;                        /*Eine Lücke von 2px zum Content*/
+    outline: 2px solid black;                 /*Rahmen von 2px*/
+}
+
+.button-styling {
+    all: unset;
+    width: calc(100% - 3rem);
+    height: 1rem;
+    font-size: 0.7rem;
+    color: white;
+    background-color: rgba(33, 33, 216, 0.781);
+    border-radius: 0.3rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+}
